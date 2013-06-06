@@ -45,7 +45,7 @@ alias prompt_getcolors='prompt_colors[9]=; local i; for i in ${!prompt_colors[@]
 # Exit code of previous command.
 function prompt_exitcode() {
   prompt_getcolors
-  [[ $1 != 0 ]] && echo " $c2$1$c9"
+  [[ $1 != 0 ]] && echo "$c2$1$c9 "
 }
 
 # Git status.
@@ -67,7 +67,7 @@ function prompt_git() {
   if [[ "$flags" ]]; then
     output="$output$c1:$c0$flags"
   fi
-  echo "$c1[$c0$output$c1]$c9"
+  echo "$c1[$c0$output$c1]$c9 "
 }
 
 # SVN info.
@@ -108,17 +108,19 @@ function prompt_command() {
   # path: [user@host:path]
   PS1="$PS1$c1[$c0\u$c1@$c0\h$c1][$c3\w$c1]$c9"
 
+  PS1="$PS1\n"
+
   # svn: [repo:lastchanged]
   PS1="$PS1$(prompt_svn)"
   # git: [branch:flags]
   PS1="$PS1$(prompt_git)"
 
-  PS1="$PS1\n"
   # date: [HH:MM:SS]
-  PS1="$PS1$c1[$c0$(date +"%H$c1:$c0%M$c1:$c0%S")$c1]$c9"
+  # PS1="$PS1$c1[$c0$(date +"%H$c1:$c0%M$c1:$c0%S")$c1]$c9"
+
   # exit code: 127
   PS1="$PS1$(prompt_exitcode "$exit_code")"
-  PS1="$PS1 \$ "
+  PS1="$PS1\$ "
 }
 
 PROMPT_COMMAND="prompt_command"
