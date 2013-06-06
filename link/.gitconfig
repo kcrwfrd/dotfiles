@@ -1,0 +1,12 @@
+[color]
+	ui = true
+[user]
+	name = Kevin Crawford
+	email = kcrawford@gunnjerkens.com
+[core]
+	excludesfile = /Users/kcrawford/.gitignore
+[push]
+	default = simple
+[alias]
+	update = !git fetch -v && echo && git status
+	l = log --all --oneline --decorate --graph
