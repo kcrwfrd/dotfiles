@@ -1,0 +1,8 @@
+# Change into directory and list contents
+function cl() {
+	cd $1 && ls
+}
+alias cl=cl
+
+alias vhosts="subl ~/conf/vhosts.conf"
+alias hosts="subl ~/conf/hosts"
