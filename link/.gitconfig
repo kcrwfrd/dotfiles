@@ -10,3 +10,4 @@
 [alias]
 	update = !git fetch -v && echo && git status
 	l = log --all --oneline --decorate --graph
+	s = status
