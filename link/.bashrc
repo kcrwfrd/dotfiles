@@ -1,10 +1,7 @@
-# source ~/dotfiles/source/.aliases
+source ~/.aliases
 
 # rbenv for managing Ruby
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# Custom Bash Prompt
-# export PS1='\u@\h [\w]\$ '
 
 # Source all files in ~/.dotfiles/source/
 function src() {
