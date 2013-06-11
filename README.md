@@ -1,5 +1,7 @@
 # Dotfiles
-These are my [dotfiles](http://dotfiles.github.io/), loosely inspired by [https://github.com/cowboy/dotfiles](https://github.com/cowboy/dotfiles) and [https://github.com/mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles), minus the scripted bootstrapping&mdash;I wanted to allow myself a chance to become more familiar with them before automating everything.
+These are my [dotfiles](http://dotfiles.github.io/), loosely inspired by [https://github.com/cowboy/dotfiles](https://github.com/cowboy/dotfiles) and [https://github.com/mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles).
+
+Everything has been pared down to a minimum, and most of the automated bootstrapping has been scrapped. I wanted to let my dotfiles grow organically, so that I may better understand them, rather than just drop in somebody else's settings.
 
 ## Usage
 * Clone the repo into `~/dotfiles`
