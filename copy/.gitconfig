@@ -9,5 +9,7 @@
 	default = simple
 [alias]
 	update = !git fetch -v && echo && git status
+	u = !git update
 	l = log --all --oneline --decorate --graph
 	s = status
+	d = diff
