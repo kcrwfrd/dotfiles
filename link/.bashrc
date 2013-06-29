@@ -1,5 +1,9 @@
 source ~/.aliases
 
+# System Paths
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:$HOME/local/bin:$PATH"
+export NODE_PATH="/usr/local/lib/node"
+
 # rbenv for managing Ruby
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
