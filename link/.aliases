@@ -4,5 +4,5 @@ function cl() {
 }
 alias cl=cl
 
-alias vhosts="subl ~/conf/vhosts.conf"
-alias hosts="subl ~/conf/hosts"
+alias vhosts="subl /private/etc/apache2/extra/httpd-vhosts.conf"
+alias hosts="subl /private/etc/hosts"
