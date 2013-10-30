@@ -2,9 +2,10 @@
 	ui = true
 [user]
 	name = Kevin Crawford
-	email = kcrawford@gunnjerkens.com
+	email = kvcrawford@gmail.com
 [core]
-	excludesfile = /Users/kcrawford/.gitignore
+	excludesfile = ~/.gitignore
+	editor = subl -w
 [push]
 	default = simple
 [alias]
