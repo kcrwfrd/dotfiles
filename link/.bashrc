@@ -4,6 +4,9 @@ source ~/.aliases
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:$HOME/local/bin:$PATH"
 export NODE_PATH="/usr/local/lib/node"
 
+# Other System Variables
+export EDITOR=subl
+
 # rbenv for managing Ruby
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
@@ -20,3 +23,4 @@ function src() {
 }
 
 src
+source /usr/local/etc/bash_completion.d/password-store
