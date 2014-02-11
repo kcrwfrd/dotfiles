@@ -5,4 +5,5 @@ function cl() {
 alias cl=cl
 
 alias vhosts="subl ~/conf/vhosts.conf"
-alias hosts="subl ~/conf/hosts"
+alias hosts="subl /private/etc/hosts"
+alias nginxconf="subl /usr/local/etc/nginx/nginx.conf"
