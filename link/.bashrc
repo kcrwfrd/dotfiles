@@ -23,4 +23,3 @@ function src() {
 }
 
 src
-source /usr/local/etc/bash_completion.d/password-store
