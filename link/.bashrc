@@ -10,6 +10,11 @@ export PATH=$PATH:$GOPATH/bin
 export EDITOR=subl
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+# Autocompletion
+if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
+. `brew --prefix`/etc/bash_completion.d/git-completion.bash
+fi
+
 # rbenv for managing Ruby
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
