@@ -8,6 +8,7 @@ export PATH=$PATH:$GOPATH/bin
 
 # Other System Variables
 export EDITOR=subl
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # rbenv for managing Ruby
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
