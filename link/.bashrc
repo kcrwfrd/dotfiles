@@ -10,6 +10,10 @@ export PATH=$PATH:$GOPATH/bin
 # Other System Variables
 export EDITOR='subl -w'
 
+# Shift hostnames
+export STAGE='staging02.public.smm-stage-1.grapheffect.com'
+export PREVIEW='preview10.public.smm-prod-1.grapheffect.com'
+
 # rbenv for managing Ruby
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
