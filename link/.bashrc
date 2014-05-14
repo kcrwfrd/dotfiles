@@ -8,7 +8,7 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 # Other System Variables
-export EDITOR=subl
+export EDITOR='subl -w'
 
 # rbenv for managing Ruby
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
