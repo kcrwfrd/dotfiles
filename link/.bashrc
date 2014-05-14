@@ -9,10 +9,16 @@ export PATH=$PATH:$GOPATH/bin
 
 # Other System Variables
 export EDITOR='subl -w'
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Shift hostnames
 export STAGE='staging02.public.smm-stage-1.grapheffect.com'
 export PREVIEW='preview10.public.smm-prod-1.grapheffect.com'
+
+# Autocompletion
+if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
+. `brew --prefix`/etc/bash_completion.d/git-completion.bash
+fi
 
 # rbenv for managing Ruby
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
