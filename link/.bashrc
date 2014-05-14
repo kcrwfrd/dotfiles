@@ -2,6 +2,11 @@
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:$HOME/local/bin:$PATH"
 export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
 
+# Go
+export PATH=$PATH:/usr/local/Cellar/go/1.2.1/libexec/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 # Other System Variables
 export EDITOR=subl
 
