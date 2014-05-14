@@ -10,6 +10,7 @@
 	default = simple
 [alias]
 	update = !git fetch -v && echo && git status
+	co = checkout
 	u = !git update
 	l = log --all --oneline --decorate --graph
 	s = status
