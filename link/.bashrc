@@ -14,6 +14,8 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # Shift hostnames
 export STAGE='staging02.public.smm-stage-1.grapheffect.com'
 export STAGE10='staging10.public.smm-stage-1.grapheffect.com'
+export STAGE15='staging15.public.smm-stage-1.grapheffect.com'
+export STAGE21='staging21.public.smm-stage-1.grapheffect.com'
 export PREVIEW='preview10.public.smm-prod-1.grapheffect.com'
 
 # Autocompletion
