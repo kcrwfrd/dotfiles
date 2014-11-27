@@ -13,7 +13,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Shift hostnames
 for i in {1..21}; do
-  export STAGE${i}="staging${i}.elb.fmm.staging.grapheffect.com"
+  export STAGE${i}="staging${i}.fmm.staging.grapheffect.com"
 done
 
 # Autocompletion
