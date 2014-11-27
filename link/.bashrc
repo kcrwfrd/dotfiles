@@ -12,7 +12,7 @@ export EDITOR='subl -w'
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Shift hostnames
-for i in `seq 1 21`; do
+for i in {1..21}; do
   export STAGE${i}="staging${i}.elb.fmm.staging.grapheffect.com"
 done
 
