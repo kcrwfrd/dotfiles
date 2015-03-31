@@ -13,7 +13,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Shift hostnames
 for i in {1..21}; do
-  export STAGE${i}="staging${i}.elb.fmm.staging.grapheffect.com"
+  export STAGE${i}="fmm-staging${i}.shift.com"
 
   # Internal DNS needed for SSH
   export STAGE${i}INT="staging${i}.fmm.staging.grapheffect.com"
