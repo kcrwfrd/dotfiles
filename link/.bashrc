@@ -19,6 +19,12 @@ for i in {1..21}; do
   export STAGE${i}INT="staging${i}.fmm.staging.grapheffect.com"
 done
 
+export AUTO1="auto-staging1.shift.com"
+export AUTO1INT="staging1.automation.staging.grapheffect.com"
+
+export AUTO2="auto-staging.shift.com"
+export AUTO2INT="staging2.automation.staging.grapheffect.com"
+
 # Autocompletion
 if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
 . `brew --prefix`/etc/bash_completion.d/git-completion.bash
