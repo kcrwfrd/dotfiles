@@ -4,9 +4,9 @@ These are my [dotfiles](http://dotfiles.github.io/), loosely inspired by [https:
 Everything has been pared down to a minimum, and most of the automated bootstrapping has been scrapped. I wanted to let my dotfiles grow organically, so that I may better understand them, rather than just drop in somebody else's settings.
 
 ## Usage
-* Clone the repo into `~/dotfiles`
-* Link everything in `link/` to home: `ln -s ~/dotfiles/link/.bashrc ~/.bashrc`
-* Copy everything in `copy/` to home: `cp ~/dotfiles/.gitconfig ~/.gitconfig`. This allows for system-specific settings without disturbing the repo.
+* Clone the repo into `~/.dotfiles`
+* Link everything in `link/` to home: `ln -s ~/.dotfiles/link/.bashrc ~/.bashrc`
+* Copy everything in `copy/` to home: `cp ~/.dotfiles/.gitconfig ~/.gitconfig`. This allows for system-specific settings without disturbing the repo.
 * `init/` has some scripts that can be run once for system initialization
 * Anything in `source/` will automatically get sourced by a handy function in .bashrc
 
