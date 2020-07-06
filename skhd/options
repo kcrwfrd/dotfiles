@@ -1,0 +1,17 @@
+###########################################################
+# OPTIONS #################################################
+###########################################################
+:: options @
+
+# enter
+hyper - o ; options
+
+# exit
+options < escape ; default
+
+# Toggle focus_follows_mouse
+# @TODO write bash function to toggle setting
+options < 1 : yabai -m config focus_follows_mouse autoraise; \
+  skhd -k "escape"
+options < 0 : yabai -m config focus_follows_mouse off; \
+  skhd -k "escape"

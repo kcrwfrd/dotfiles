@@ -1,0 +1,99 @@
+###########################################################
+# WINDOW ##################################################
+###########################################################
+
+# toggle window zoom
+alt - d : yabai -m window --toggle zoom-parent
+alt - f : yabai -m window --toggle zoom-fullscreen
+shift + alt - f : yabai -m window --toggle native-fullscreen
+
+# toggle window split type
+alt - e : yabai -m window --toggle split
+
+# float / unfloat window
+alt - t : yabai -m window --toggle float
+
+# toggle transparency
+# window < t : yabai -m config window_opacity 0.8
+
+# FOCUS ##################################
+##########################################
+hyper - h : yabai -m window --focus west
+hyper - j : yabai -m window --focus south
+hyper - k : yabai -m window --focus north
+hyper - l : yabai -m window --focus east
+
+hyper - home: yabai -m window --focus first
+hyper - end : yabai -m window --focus last
+
+hyper - pageup : yabai -m window --focus prev
+hyper - pagedown : yabai -m window --focus next
+
+# WARP ###################################
+##########################################
+cmd + shift - h : yabai -m window --warp west
+cmd + shift - j : yabai -m window --warp south
+cmd + shift - k : yabai -m window --warp north
+cmd + shift - l : yabai -m window --warp east
+
+cmd + shift - home : yabai -m window --warp first
+cmd + shift - end : yabai -m window --warp last
+
+cmd + shift - pageup : yabai -m window --warp prev
+cmd + shift - pagedown : yabai -m window --warp next
+
+# SWAP ###################################
+##########################################
+alt + shift - h : yabai -m window --swap west
+alt + shift - j : yabai -m window --swap south
+alt + shift - k : yabai -m window --swap north
+alt + shift - l : yabai -m window --swap east
+
+alt + shift - home : yabai -m window --swap first
+alt + shift - end : yabai -m window --swap last
+
+alt + shift - pageup : yabai -m window --swap prev
+alt + shift - pagedown : yabai -m window --swap next
+
+# swap recent
+# @TODO swap siblings
+alt - s : yabai -m window --swap recent
+
+# SPACES #################################
+##########################################
+
+# send window to space and follow focus
+cmd + shift - 1 : yabai -m window --space 1; yabai -m space --focus 1
+cmd + shift - 2 : yabai -m window --space 2; yabai -m space --focus 2
+cmd + shift - 3 : yabai -m window --space 3; yabai -m space --focus 3
+cmd + shift - 4 : yabai -m window --space 4; yabai -m space --focus 4
+cmd + shift - 5 : yabai -m window --space 5; yabai -m space --focus 5
+cmd + shift - 6 : yabai -m window --space 6; yabai -m space --focus 6
+cmd + shift - 7 : yabai -m window --space 7; yabai -m space --focus 7
+
+# send window to space
+alt + shift - 1 : yabai -m window --space 1;
+alt + shift - 2 : yabai -m window --space 2;
+alt + shift - 3 : yabai -m window --space 3;
+alt + shift - 4 : yabai -m window --space 4;
+alt + shift - 5 : yabai -m window --space 5;
+alt + shift - 6 : yabai -m window --space 6;
+alt + shift - 7 : yabai -m window --space 7;
+
+# DISPLAY ################################
+##########################################
+
+# @TODO improve relation to warp/swap/space commands
+meh - 1 : yabai -m window --display 1; \
+  yabai -m display --focus 1
+
+meh - 2 : yabai -m window --display 2; \
+  yabai -m display --focus 2
+
+# send window to other monitor
+# @NOTE disables native minimize
+cmd - m :
+  yabai -m window --display prev || \
+  yabai -m window --display next && \
+  yabai -m display --focus prev || \
+  yabai -m display --focus next

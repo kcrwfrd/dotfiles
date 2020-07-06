@@ -13,5 +13,8 @@ Everything has been pared down to a minimum, and most of the automated bootstrap
 ## Karabiner Elements
 Note: when symlinking `./karabiner/karabiner.json` to `~/.config/karabiner/karabiner.json`, if you update any settings using the Karabiner Elements GUI it will destroy the symlink.
 
-## License and Attribution
+## SKHD
+Symlink all of ./skhd to ~/.config/skhd
+
+#### License and Attribution
 Bits and pieces are courtesy of [Ben Alman](https://github.com/cowboy) and [Mathias Bynens](https://github.com/mathiasbynens), and licensed under the [MIT License](http://opensource.org/licenses/MIT) and/or the [GPL](http://www.gnu.org/licenses/gpl.html) where appropriate.

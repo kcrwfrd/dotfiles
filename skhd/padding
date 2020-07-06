@@ -1,0 +1,49 @@
+###########################################################
+# PADDING #################################################
+###########################################################
+
+# @TODO cleanup and move to window commands
+
+# mode
+:: padding @
+
+# enter
+hyper - p ; padding
+
+# exit
+padding < escape ; default
+
+# toggle padding
+# alt - a : yabai -m space --toggle padding
+padding < t : yabai -m space --toggle padding; skhd -k "escape"
+
+# reset default padding
+# TODO monitor-size based resizing
+padding < 0 :
+  yabai -m space --padding abs:0:0:0:0; \
+  yabai -m config window_gap 20; \
+  skhd -k "escape";
+
+padding < 9 : yabai -m space --padding abs:20:20:20:20; \
+  yabai -m config window_gap 20; \
+  skhd -k "escape";
+
+padding < 8 : yabai -m space --padding abs:80:80:100:100; \
+  yabai -m config window_gap 20; \
+  skhd -k "escape";
+
+padding < 7 : yabai -m space --padding abs:160:160:180:180; \
+  yabai -m config window_gap 20; \
+  skhd -k "escape";
+
+padding < 6 : yabai -m space --padding abs:280:280:360:360; \
+  yabai -m config window_gap 20; \
+  skhd -k "escape";
+
+padding < 5 : yabai -m space --padding abs:280:280:640:640; \
+  yabai -m config window_gap 20; \
+  skhd -k "escape";
+
+padding < 1 : yabai -m space --padding abs:280:280:640:640; \
+  yabai -m config window_gap 20; \
+  skhd -k "escape";

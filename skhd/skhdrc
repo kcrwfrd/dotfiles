@@ -1,0 +1,31 @@
+# Symlink directory ./skhdrc/ to ~/.config/skhdrc
+
+# Example file:
+# /usr/local/opt/yabai/share/yabai/examples/skhdrc
+
+# https://github.com/koekeishiya/skhd/issues/1
+# hyper (cmd + shift + alt + ctrl)
+# meh (shift + alt + ctrl)
+
+## Known occupied namespaces
+
+# Screenshot
+# cmd + shift + <8,9,0>
+
+# Sublime layouts
+# cmd + opt + <number>
+# cmd + opt + shift + <number>
+
+# Tab ordering (Sublime, Chrome)
+# ctrl + shift + <number>
+
+# default mode (so we can auto-exit other modes)
+:: default
+
+.load "window"
+.load "space"
+.load "padding"
+.load "options"
+
+# Reload config
+hyper - r : skhd --reload
