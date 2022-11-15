@@ -1,0 +1,10 @@
+set show-all-if-ambiguous on
+set visible-stats on
+set bell-style visible
+set horizontal-scroll-mode on
+
+set menu-complete-display-prefix on
+set colored-stats on
+
+TAB: menu-complete
+"\e[Z": "\e-1\C-i"
