@@ -13,8 +13,68 @@ alt - e : yabai -m window --toggle split
 # float / unfloat window
 alt - t : yabai -m window --toggle float
 
+# OPACITY ################################
+##########################################
+:: transparency @
+
+# enter
+hyper - t ; transparency
+
+# exit
+transparency < escape ; default
+
 # toggle transparency
-# window < t : yabai -m config window_opacity 0.8
+# transparency < 0 : yabai -m window --opacity 0; \
+#   skhd -k "escape"
+transparency < 9 : yabai -m window --opacity 0.9; \
+  skhd -k "escape"
+transparency < 8 : yabai -m window --opacity 0.8; \
+  skhd -k "escape"
+transparency < 7 : yabai -m window --opacity 0.7; \
+  skhd -k "escape"
+transparency < 6 : yabai -m window --opacity 0.6; \
+  skhd -k "escape"
+transparency < 5 : yabai -m window --opacity 0.5; \
+  skhd -k "escape"
+transparency < 1 : yabai -m window --opacity 1; \
+  skhd -k "escape"
+
+# SPLIT RATIO ############################
+##########################################
+
+# Key codes
+# 0x18 -> =
+# 0x1B -> -
+
+# hyper - 0x18 : yabai -m window --ratio abs:0.381966011
+
+# @TODO
+# Simplify into toggling with + or - instead of by index
+hyper - 1 : yabai -m window --ratio abs:0.166666667
+hyper - 2 : yabai -m window --ratio abs:0.25
+hyper - 3 : yabai -m window --ratio abs:0.333333333 
+hyper - 4 : yabai -m window --ratio abs:0.381966011 # golden ratio
+hyper - 5 : yabai -m window --ratio abs:0.5
+hyper - 6 : yabai -m window --ratio abs:0.618033989 # golden ratio
+hyper - 7 : yabai -m window --ratio abs:0.666666666
+hyper - 8 : yabai -m window --ratio abs:0.75
+hyper - 9 : yabai -m window --ratio abs:0.833333333
+hyper - 0 : yabai -m window --ratio abs:0.5
+
+# hyper - 0x1B : yabai -m window --ratio abs:0.618033989
+
+# halves equalize split (hyper - =)
+# hyper - 2 : yabai -m window --ratio abs:0.5
+# hyper - 0x18 : yabai -m window --ratio abs:0.5
+
+# golden split (hyper - -)
+# hyper - 0x1B : yabai -m window --ratio abs:0.381966011
+
+# thirds
+# hyper - 3 : yabai -m window --ratio abs:0.3333
+
+# quarters
+# hyper - 4 : yabai -m window --ratio abs:0.25
 
 # FOCUS ##################################
 ##########################################
@@ -23,11 +83,36 @@ hyper - j : yabai -m window --focus south
 hyper - k : yabai -m window --focus north
 hyper - l : yabai -m window --focus east
 
+# Stacked windows
+# hyper - 0x21 : yabai -m window --focus stack.prev || \
+#   yabai -m window --focus stack.last
+hyper - 0x29 : yabai -m window --focus stack.next || \
+  yabai -m window --focus stack.first
+
 hyper - home: yabai -m window --focus first
 hyper - end : yabai -m window --focus last
 
-hyper - pageup : yabai -m window --focus prev
-hyper - pagedown : yabai -m window --focus next
+# Does not support stacked windows
+# hyper - pageup : yabai -m window --focus prev
+# hyper - pagedown : yabai -m window --focus next
+
+# hyper - pageup : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.next || yabai -m window --focus stack.first); else yabai -m window --focus next || yabai -m window --focus first; fi
+# hyper - pagedown : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.prev || yabai -m window --focus stack.last); else yabai -m window --focus prev || yabai -m window --focus last; fi
+
+
+
+# hyper - pagedown : yabai -m query --spaces --space \
+#   | jq -re ".index" \
+#   | xargs -I{} yabai -m query --windows --space {} \
+#   | jq -sre "add | map(select(.minimized != 1)) | sort_by(.display, .frame.y, .frame.x, .id) | reverse | nth(index(map(select(.focused == 1))) - 1).id" \
+#   | xargs -I{} yabai -m window --focus {}
+
+# hyper - pageup : yabai -m query --spaces --space \
+#   | jq -re ".index" \
+#   | xargs -I{} yabai -m query --windows --space {} \
+#   | jq -sre "add | map(select(.minimized != 1)) | sort_by(.display, .frame.y, .frame.y, .id) | nth(index(map(select(.focused == 1))) - 1).id" \
+#   | xargs -I{} yabai -m window --focus {}
+
 
 # WARP ###################################
 ##########################################
@@ -41,6 +126,13 @@ cmd + shift - end : yabai -m window --warp last
 
 cmd + shift - pageup : yabai -m window --warp prev
 cmd + shift - pagedown : yabai -m window --warp next
+
+# STACK ##################################
+##########################################
+meh - h : yabai -m window --stack west
+meh - j : yabai -m window --stack south
+meh - k : yabai -m window --stack north
+meh - l : yabai -m window --stack east
 
 # SWAP ###################################
 ##########################################
@@ -58,11 +150,14 @@ alt + shift - pagedown : yabai -m window --swap next
 # swap recent
 # @TODO swap siblings
 alt - s : yabai -m window --swap recent
+hyper - s : yabai -m window --swap recent
 
 # SPACES #################################
 ##########################################
 
 # send window to space and follow focus
+#
+# @TODO collides with default screenshot commands--can we fix?
 cmd + shift - 1 : yabai -m window --space 1; yabai -m space --focus 1
 cmd + shift - 2 : yabai -m window --space 2; yabai -m space --focus 2
 cmd + shift - 3 : yabai -m window --space 3; yabai -m space --focus 3
@@ -70,6 +165,9 @@ cmd + shift - 4 : yabai -m window --space 4; yabai -m space --focus 4
 cmd + shift - 5 : yabai -m window --space 5; yabai -m space --focus 5
 cmd + shift - 6 : yabai -m window --space 6; yabai -m space --focus 6
 cmd + shift - 7 : yabai -m window --space 7; yabai -m space --focus 7
+cmd + shift - 8 : yabai -m window --space 8; yabai -m space --focus 8
+cmd + shift - 9 : yabai -m window --space 9; yabai -m space --focus 9
+cmd + shift - 0 : yabai -m window --space 10; yabai -m space --focus 10
 
 # send window to space
 alt + shift - 1 : yabai -m window --space 1;
@@ -79,6 +177,9 @@ alt + shift - 4 : yabai -m window --space 4;
 alt + shift - 5 : yabai -m window --space 5;
 alt + shift - 6 : yabai -m window --space 6;
 alt + shift - 7 : yabai -m window --space 7;
+alt + shift - 8 : yabai -m window --space 8;
+alt + shift - 9 : yabai -m window --space 9;
+alt + shift - 0 : yabai -m window --space 10;
 
 # DISPLAY ################################
 ##########################################

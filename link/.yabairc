@@ -1,12 +1,15 @@
 #!/usr/bin/env sh
 
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
 # global settings
 yabai -m config mouse_follows_focus          on
 yabai -m config focus_follows_mouse          autoraise
 yabai -m config window_placement             second_child
-yabai -m config window_topmost               on
+yabai -m config window_topmost               off
 yabai -m config window_shadow                on
-yabai -m config window_opacity               off
+yabai -m config window_opacity               on
 yabai -m config window_opacity_duration      0.0
 yabai -m config active_window_opacity        1.0
 yabai -m config normal_window_opacity        1
@@ -66,9 +69,21 @@ yabai -m rule --add app="^licecap$" manage=off
 # yabai -m rule --add app="^FaceTime$" manage=off
 
 # Windows
-yabai -m rule --add app="^Chrome$" title="Developer Tools" manage=off
-yabai -m rule --add app="^Chrome$" title="Pinboard - Save a Bookmark" manage=off
-yabai -m rule --add app="^Finder$" title="Info$" manage=off
+# @TODO bug where rules are not being applied to new windows
+yabai -m rule --add app="^Google Chrome$" \
+  title="DevTools|devtools\:\/\/" \
+  manage=off \
+  label=devtools
+
+# Pinboard bookmark
+yabai -m rule --add app="^Google Chrome$" \
+  title="^ - Kevin$|Pinboard - Save a Bookmark" \
+  manage=off layer=above opacity=0.9 grid=3:3:1:1:1:1 \
+  label=pinboard
+
+yabai -m rule --add app="^Finder$" manage=off
+
+# yabai -m rule --add app="^Finder$" title="Info$" manage=off
 # yabai -m rule --add app="^Finder$" title="Copy" manage=off
 
 echo "yabai configuration loaded.."
@@ -77,10 +92,12 @@ echo "yabai configuration loaded.."
 ## WISHLIST ##
 ##############
 #
-# More granular options for window_placement:
-# * For new windows (second_child at the bottom of the tree)
-# * Warped windows (second_child if warped from right,
-#   first_child when warped from left)
+# * More granular options for window_placement:
+#   * For new windows (second_child at the bottom of the tree)
+#   * Warped windows (second_child if warped from right,
+#     first_child when warped from left)
 #
-# Sibling window selector
-# * So you can swap window with sibling
+# * Sibling window selector
+#   * So you can swap window with sibling
+#
+# * Invert split ratio of a node (i.e. window goes from 30% -> 70% width)
