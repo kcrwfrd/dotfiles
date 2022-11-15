@@ -15,3 +15,6 @@
 	l = log --all --oneline --decorate --graph
 	s = status
 	d = diff
+	delete-merged-branches = "!f() { git branch --merged | grep -v '\*\|master\|develop\|staging' | xargs -n 1 git branch -d }; f"
+[merge]
+	conflictstyle = diff3

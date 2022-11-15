@@ -8,8 +8,8 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 # Other System Variables
-export EDITOR='subl -w'
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export NODE_ENV="development"
 
 # Autocompletion
 if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
