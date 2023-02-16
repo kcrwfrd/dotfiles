@@ -5,7 +5,6 @@
 	email = kvcrawford@gmail.com
 [core]
 	excludesfile = ~/.gitignore
-	editor = subl -w
 [push]
 	default = simple
 [alias]
